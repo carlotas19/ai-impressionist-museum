@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "The AI Artiste — An Impressionist Museum",
   description:
-    "A collection of impressionist art painted by AI. Eight GPT-5 models interpret classic subjects through Neon AI Gateway.",
+    "Who says AI doesn't have feelings? Eight GPT-5 models paint impressionist canvases through Neon AI Gateway — with a house critic's verdict.",
   openGraph: {
     title: "The AI Artiste",
     description:
-      "A collection of impressionist art painted by AI, powered by Neon AI Gateway.",
+      "A gallery of carefully felt impressionist work painted by eight GPT-5 models via Neon AI Gateway.",
     type: "website",
   },
 };

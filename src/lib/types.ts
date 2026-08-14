@@ -12,7 +12,7 @@ export interface Artwork {
   palette: string[];
 }
 
-export type Tab = "gallery" | "methodology";
+export type Tab = "gallery" | "critic" | "methodology";
 
 export interface ModelConfig {
   modelId: string;

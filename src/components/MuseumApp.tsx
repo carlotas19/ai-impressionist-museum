@@ -5,6 +5,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { gallery } from "@/data/gallery";
 import type { Tab } from "@/lib/types";
 import { Gallery } from "@/components/Gallery";
+import { Critic } from "@/components/Critic";
 import { Methodology } from "@/components/Methodology";
 import { TabNav } from "@/components/TabNav";
 import { NeonBadge } from "@/components/NeonBadge";
@@ -36,9 +37,9 @@ export function MuseumApp() {
             The AI Artiste
           </h1>
           <p className="mt-4 max-w-xl animate-fade-in font-sans text-sm leading-relaxed text-museum-muted">
-            Eight GPT-5 models. Eight interpretations. One shared renderer.
-            Each work in this gallery was composed by a different model variant
-            through Neon AI Gateway.
+            Who says AI doesn&apos;t have feelings? Take a quiet turn through
+            eight carefully felt canvases — each one painted by a different
+            GPT-5 model. We&apos;ve named a favorite. Be the judge.
           </p>
           <div className="mt-10">
             <TabNav activeTab={activeTab} onTabChange={setActiveTab} />
@@ -47,11 +48,9 @@ export function MuseumApp() {
       </header>
 
       <main>
-        {activeTab === "gallery" ? (
-          <Gallery artworks={gallery} />
-        ) : (
-          <Methodology />
-        )}
+        {activeTab === "gallery" && <Gallery artworks={gallery} />}
+        {activeTab === "critic" && <Critic />}
+        {activeTab === "methodology" && <Methodology />}
       </main>
 
       <footer className="border-t border-museum-border px-6 py-8 text-center">

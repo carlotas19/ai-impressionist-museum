@@ -1,4 +1,4 @@
-import type { Artwork } from "./types";
+import type { Artwork } from "@/lib/types";
 
 export const gallery: Artwork[] = [
   {
