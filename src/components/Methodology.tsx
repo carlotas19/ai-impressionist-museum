@@ -2,13 +2,13 @@ export function Methodology() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16 lg:px-0">
       <header className="mb-16 animate-fade-in">
-        <p className="font-sans text-xs uppercase tracking-[0.3em] text-museum-muted">
+        <p className="font-serif text-sm uppercase tracking-[0.3em] text-museum-muted">
           Behind the exhibition
         </p>
         <h2 className="mt-4 font-serif text-4xl font-light tracking-wide text-museum-cream lg:text-5xl">
           Methodology
         </h2>
-        <p className="mt-6 font-sans text-lg leading-relaxed text-museum-cream/70">
+        <p className="mt-6 font-serif text-lg leading-relaxed text-museum-cream/70">
           How eight GPT-5 models became eight artists — and how Neon&apos;s
           branching architecture made it possible.
         </p>
@@ -105,16 +105,16 @@ const result = streamText({
             metadata live together.
           </p>
           <div className="mt-6 overflow-hidden rounded-sm border border-museum-border">
-            <table className="w-full font-mono text-xs">
+            <table className="w-full font-serif text-sm">
               <thead>
                 <tr className="border-b border-museum-border bg-museum-plaque">
-                  <th className="px-4 py-3 text-left font-sans text-museum-muted">
+                  <th className="px-4 py-3 text-left font-serif text-museum-muted">
                     Branch
                   </th>
-                  <th className="px-4 py-3 text-left font-sans text-museum-muted">
+                  <th className="px-4 py-3 text-left font-serif text-museum-muted">
                     Model
                   </th>
-                  <th className="px-4 py-3 text-left font-sans text-museum-muted">
+                  <th className="px-4 py-3 text-left font-serif text-museum-muted">
                     Subject
                   </th>
                 </tr>
@@ -130,7 +130,7 @@ const result = streamText({
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-museum-muted">
+          <p className="mt-4 text-base text-museum-muted">
             If you use Neon branches for preview deployments, AI requests from a
             feature branch are scoped to that branch — the same isolation your
             database already gets.
@@ -165,7 +165,7 @@ const result = streamText({
               href="https://github.com/carlotas19/ai-impressionist-museum"
             />
           </ul>
-          <p className="mt-6 text-sm text-museum-muted">
+          <p className="mt-6 text-base text-museum-muted">
             Fork it, remix a plaque, or regenerate the collection from{" "}
             <a
               href="https://github.com/carlotas19/ai-impressionist-museum"
@@ -196,7 +196,7 @@ npm run setup:db
 npm run setup:branches
 npm run generate`}
           </CodeBlock>
-          <p className="text-sm text-museum-muted">
+          <p className="text-base text-museum-muted">
             AI Gateway is in beta, requires a paid Neon plan, and is available
             only in AWS US East (Ohio). Inference is free during beta.{" "}
             <a
@@ -234,7 +234,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="animate-fade-in space-y-4 font-sans text-base leading-relaxed text-museum-cream/70">
+    <section className="animate-fade-in space-y-4 font-serif text-lg leading-relaxed text-museum-cream/70">
       <h3 className="font-serif text-2xl font-light text-museum-cream">
         {title}
       </h3>
@@ -270,7 +270,7 @@ function StackItem({
       >
         {name}
       </a>
-      <span className="text-right text-sm text-museum-muted">{role}</span>
+      <span className="text-right text-base text-museum-muted">{role}</span>
     </li>
   );
 }

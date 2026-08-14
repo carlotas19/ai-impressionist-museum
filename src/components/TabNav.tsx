@@ -21,7 +21,7 @@ export function TabNav({ activeTab, onTabChange }: TabNavProps) {
         <button
           key={tab.id}
           onClick={() => onTabChange(tab.id)}
-          className={`relative pb-4 font-sans text-sm uppercase tracking-[0.2em] transition-colors ${
+          className={`relative pb-4 font-serif text-base uppercase tracking-[0.2em] transition-colors ${
             activeTab === tab.id
               ? "text-museum-cream"
               : "text-museum-muted hover:text-museum-cream/70"

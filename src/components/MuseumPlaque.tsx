@@ -11,11 +11,11 @@ export function MuseumPlaque({ artwork }: MuseumPlaqueProps) {
       <h3 className="font-serif text-2xl font-light tracking-wide text-museum-cream">
         {artwork.title}
       </h3>
-      <p className="mt-2 font-sans text-sm italic text-museum-muted">
+      <p className="mt-2 font-serif text-base italic text-museum-muted">
         {artwork.artist}
       </p>
       <div className="plaque-rule my-4" />
-      <dl className="space-y-3 font-sans text-xs tracking-wide text-museum-muted">
+      <dl className="space-y-3 font-serif text-sm tracking-wide text-museum-muted">
         <div className="flex justify-between">
           <dt>Year</dt>
           <dd className="text-museum-cream/80">{artwork.year}</dd>
@@ -26,14 +26,14 @@ export function MuseumPlaque({ artwork }: MuseumPlaqueProps) {
         </div>
         <div className="flex justify-between">
           <dt>Model</dt>
-          <dd className="font-mono text-museum-cream/80">{artwork.modelId}</dd>
+          <dd className="text-museum-cream/80">{artwork.modelId}</dd>
         </div>
         <div className="flex justify-between">
           <dt>Branch</dt>
-          <dd className="font-mono text-museum-cream/80">{artwork.branchName}</dd>
+          <dd className="text-museum-cream/80">{artwork.branchName}</dd>
         </div>
       </dl>
-      <p className="mt-6 font-sans text-sm leading-relaxed text-museum-cream/70">
+      <p className="mt-6 font-serif text-base leading-relaxed text-museum-cream/70">
         {artwork.description}
       </p>
       <div className="mt-6 flex gap-2">

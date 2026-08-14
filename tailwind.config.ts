@@ -9,8 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: [
+          "var(--font-cormorant)",
+          "Cormorant Garamond",
+          "Georgia",
+          "Times New Roman",
+          "serif",
+        ],
       },
       colors: {
         museum: {

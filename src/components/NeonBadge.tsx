@@ -8,7 +8,7 @@ export function NeonBadge() {
       aria-label="Built using Neon AI Gateway"
     >
       <NeonLogo className="h-4 w-4 text-neon-green transition-transform group-hover:scale-110" />
-      <span className="font-sans text-xs tracking-wide text-museum-muted transition-colors group-hover:text-museum-cream">
+      <span className="font-serif text-sm tracking-wide text-museum-muted transition-colors group-hover:text-museum-cream">
         Built using{" "}
         <span className="text-museum-cream group-hover:text-neon-green">
           Neon AI Gateway

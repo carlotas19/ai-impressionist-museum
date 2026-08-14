@@ -154,7 +154,7 @@ export function Gallery({ artworks }: GalleryProps) {
             </button>
           ))}
         </div>
-        <p className="mt-4 text-center font-sans text-xs tracking-widest text-museum-muted">
+        <p className="mt-4 text-center font-serif text-sm tracking-widest text-museum-muted">
           {String(currentIndex + 1).padStart(2, "0")} /{" "}
           {String(artworks.length).padStart(2, "0")}
         </p>

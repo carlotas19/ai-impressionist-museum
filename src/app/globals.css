@@ -15,6 +15,7 @@ html {
 body {
   background: var(--museum-black);
   color: var(--museum-cream);
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
