@@ -159,7 +159,24 @@ const result = streamText({
               role="Static hosting with edge delivery"
               href="https://vercel.com"
             />
+            <StackItem
+              name="GitHub"
+              role="Source code for this exhibition"
+              href="https://github.com/carlotas19/ai-impressionist-museum"
+            />
           </ul>
+          <p className="mt-6 text-sm text-museum-muted">
+            Fork it, remix a plaque, or regenerate the collection from{" "}
+            <a
+              href="https://github.com/carlotas19/ai-impressionist-museum"
+              className="text-neon-green underline decoration-neon-green/30 underline-offset-4 transition-colors hover:decoration-neon-green"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/carlotas19/ai-impressionist-museum
+            </a>
+            .
+          </p>
         </Section>
 
         <Section title="Generating the collection">
