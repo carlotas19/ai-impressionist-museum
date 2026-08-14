@@ -18,7 +18,7 @@ Visitors get three tabs:
 2. **Critic's Verdict** — a playful house review: most beautiful, most transformative, and least adequate.
 3. **Methodology** — how the show was built (gateway, branches, Next.js, Vercel).
 
-### Authorship (accurate version)
+### Authorship 
 
 Image generation on Neon AI Gateway today routes through OpenAI GPT-5 variants and a shared renderer. The model is still the “artiste”: each variant interprets its own subject. Plaques credit the real model ID; Methodology explains the shared renderer.
 
@@ -39,7 +39,7 @@ Image generation on Neon AI Gateway today routes through OpenAI GPT-5 variants a
 
 Generated JPEGs live in [`public/art/`](./public/art/). Wall texts live in [`src/data/gallery.ts`](./src/data/gallery.ts). Critic copy lives in [`src/data/critic.ts`](./src/data/critic.ts).
 
-### Critic's picks (this hanging)
+### Critic's picks
 
 | Ribbon | Work | Model |
 |--------|------|-------|
