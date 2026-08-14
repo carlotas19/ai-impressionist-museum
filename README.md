@@ -2,86 +2,144 @@
 
 An impressionist museum showcasing art painted by AI — eight GPT-5 model variants, each interpreting a classic subject through [Neon AI Gateway](https://neon.com/docs/ai-gateway/overview).
 
-**Live demo:** Deploy to Vercel with one click.
+**Live:** deployed on Vercel from this repository.
 
-## The exhibition
+---
 
-Each painting was commissioned with the same impressionist brief but delivered to a different GPT-5 model. The model is the artist — it interprets the subject and composes the scene via OpenAI's `image_generation` tool, exposed through Neon AI Gateway's Responses API.
+## What this is
+
+**The AI Artiste** is a small public showcase for [Neon AI Gateway](https://neon.com/docs/ai-gateway/overview) and [Neon branching](https://neon.com/docs/introduction/branching).
+
+Visitors get two tabs:
+
+1. **Gallery** — a museum-style showroom. Each painting has a plaque naming the GPT-5 model as the artist, plus a short wall-text description.
+2. **Methodology** — how the show was made: one Neon project, one branch per model, image generation through the gateway’s OpenAI Responses `image_generation` tool, frontend on Next.js / Vercel.
+
+### Honest framing
+
+Neon AI Gateway’s image-capable models today are **OpenAI GPT-5 variants**. They share one renderer (the Responses `image_generation` tool). The model is still the “artiste”: each variant receives the same kind of impressionist brief and composes its own scene. Plaques credit the real model ID; the Methodology tab explains the shared renderer.
+
+---
+
+## The collection
 
 | Branch | Model | Subject |
 |--------|-------|---------|
-| `model-gpt-5-nano` | gpt-5-nano | Water Lilies at Dusk |
-| `model-gpt-5-mini` | gpt-5-mini | Boulevard in the Rain |
-| `model-gpt-5-4-mini` | gpt-5-4-mini | Field of Poppies |
-| `model-gpt-5-4` | gpt-5-4 | Harbor at Sunrise |
-| `model-gpt-5-6-luna` | gpt-5-6-luna | Woman with a Parasol |
-| `model-gpt-5-6-terra` | gpt-5-6-terra | Haystacks in Golden Light |
-| `model-gpt-5-5` | gpt-5-5 | Dance at the Ball |
-| `model-gpt-5-6-sol` | gpt-5-6-sol | Montmartre Café Terrace |
+| `model-gpt-5-nano` | `gpt-5-nano` | Water Lilies at Dusk |
+| `model-gpt-5-mini` | `gpt-5-mini` | Boulevard in the Rain |
+| `model-gpt-5-4-mini` | `gpt-5-4-mini` | Field of Poppies |
+| `model-gpt-5-4` | `gpt-5-4` | Harbor at Sunrise |
+| `model-gpt-5-6-luna` | `gpt-5-6-luna` | Woman with a Parasol |
+| `model-gpt-5-6-terra` | `gpt-5-6-terra` | Haystacks in Golden Light |
+| `model-gpt-5-5` | `gpt-5-5` | Dance at the Ball |
+| `model-gpt-5-6-sol` | `gpt-5-6-sol` | Montmartre Café Terrace |
 
-## Important: AI Gateway region
+Generated JPEGs live in [`public/art/`](./public/art/). Metadata lives in [`src/data/gallery.ts`](./src/data/gallery.ts).
 
-AI Gateway is only available in **AWS US East (Ohio) — `aws-us-east-2`**. The auto-created Neon project (`snowy-flower-67159776`) is in `us-west-2` and **cannot** call AI Gateway. To generate real artwork:
+---
 
-1. Create a new project in the [Neon Console](https://console.neon.tech) and select **US East (Ohio)**
-2. Copy AI Gateway credentials from Console → Project → AI Gateway
-3. Update `.env.local` with the new `DATABASE_URL`, `NEON_PROJECT_ID`, and gateway credentials
-4. Run `npm run setup:db && npm run setup:branches && npm run generate`
+## Stack
 
-The gallery ships with SVG placeholder art until you run generation.
+- **[Neon](https://neon.com)** — Postgres + AI Gateway + one branch per model
+- **[Neon AI Gateway](https://neon.com/docs/ai-gateway/overview)** — inference with a Neon credential (no separate OpenAI key)
+- **Next.js** — gallery UI
+- **Vercel** — hosting
 
-## Quick start
+---
+
+## Run locally
 
 ```bash
-# Install dependencies
+git clone https://github.com/carlotas19/ai-impressionist-museum.git
+cd ai-impressionist-museum
 npm install
-
-# Configure environment
-cp .env.example .env.local
-# Fill in DATABASE_URL, NEON_AI_GATEWAY_TOKEN, NEON_AI_GATEWAY_BASE_URL
-
-# Set up database and branches
-npm run setup:db
-npm run setup:branches   # requires NEON_API_KEY
-
-# Generate artwork (one image per model, ~2 min each)
-npm run generate
-
-# Preview locally
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). The committed gallery images are enough for a full local preview — no Neon credentials required just to view the site.
 
-## Deploy to Vercel
+---
+
+## Regenerate the art (optional)
+
+Image generation needs a Neon project that can call AI Gateway:
+
+1. **Region:** `aws-us-east-2` (Ohio) — AI Gateway is only available there  
+2. **Plan:** paid (Launch / Scale / Enterprise)  
+3. **Credential:** branch credential with scope `ai_gateway:invoke`  
+4. **Env vars** in `.env.local` (see [`.env.example`](./.env.example)):
 
 ```bash
-npx vercel
+DATABASE_URL=                 # Neon pooled connection string
+NEON_AI_GATEWAY_TOKEN=        # nt_live_...
+NEON_AI_GATEWAY_BASE_URL=     # https://br-...-api.ai....us-east-2.aws.neon.tech
+NEON_PROJECT_ID=              # optional, for branch scripts
+NEON_API_KEY=                 # optional, for branch scripts
 ```
 
-Or connect the repo in the Vercel dashboard. No server-side env vars needed for the static gallery — artwork images are committed to `public/art/` after generation.
+Then:
 
-## Project structure
+```bash
+# Create the artworks table (optional metadata store)
+npm run setup:db
 
-```
-├── public/art/          # Generated JPEG artwork
-├── scripts/
-│   ├── generate-art.ts  # AI Gateway image generation
-│   ├── setup-branches.ts
-│   └── setup-db.ts
-├── src/
-│   ├── app/             # Next.js App Router
-│   ├── components/      # Gallery, Methodology, MuseumPlaque
-│   ├── data/gallery.ts  # Artwork metadata
-│   └── lib/models.ts    # Model configs and prompts
+# Create one Neon branch per model (optional demo of branching)
+npm run setup:branches
+
+# Generate JPEGs into public/art/
+python3 scripts/generate_art_http.py
+# or, with Node deps installed:
+npm run generate
 ```
 
-## How it works
+> **Note:** Prefer `streamText` / streaming when using the AI SDK — the gateway caps non-streaming responses near ~640 KB. This repo’s HTTP script requests `quality: low` JPEGs so a non-streaming Responses call stays under that limit.
 
-1. **One branch per model** — Each GPT-5 variant gets an isolated Neon branch with its own AI Gateway endpoint
-2. **Image generation** — `@neon/ai-sdk-provider` calls `neon.tools.imageGeneration()` via `streamText`
-3. **Gallery** — Next.js renders a museum-style slideshow with model attribution plaques
-4. **Methodology tab** — Documents the honest framing, branching architecture, and full stack
+Docs: [AI Gateway overview](https://neon.com/docs/ai-gateway/overview) · [Models](https://neon.com/docs/ai-gateway/models) · [Responses / image generation](https://neon.com/docs/ai-gateway/openai-responses)
+
+---
+
+## Neon project used for this showcase
+
+Created in the **Neon DevRel** org:
+
+| | |
+|--|--|
+| Project | `the-ai-artiste` |
+| Project ID | `shy-star-02764190` |
+| Region | `aws-us-east-2` |
+| Branches | `main` + eight `model-gpt-5-*` branches |
+
+---
+
+## Deploy
+
+Connect this GitHub repo to Vercel (Import Project), or:
+
+```bash
+npx vercel --prod
+```
+
+No server-side Neon env vars are required for the static gallery: images and metadata are in the repo.
+
+---
+
+## Project layout
+
+```
+public/art/                 # Generated JPEG gallery
+scripts/
+  generate_art_http.py      # Gateway image generation (stdlib Python)
+  generate-art.ts           # Same idea via @neon/ai-sdk-provider
+  setup-branches.ts
+  setup-db.ts
+src/
+  app/                      # Next.js App Router
+  components/               # Gallery, Methodology, plaques, Neon badge
+  data/gallery.ts           # Wall texts + model attribution
+  lib/models.ts             # Prompts + branch names
+```
+
+---
 
 ## License
 

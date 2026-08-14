@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "tsx scripts/generate-art.ts",
+    "generate:http": "python3 scripts/generate_art_http.py",
     "setup:branches": "tsx scripts/setup-branches.ts",
     "setup:db": "tsx scripts/setup-db.ts"
   },

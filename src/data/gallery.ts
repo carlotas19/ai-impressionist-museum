@@ -12,7 +12,7 @@ export const gallery: Artwork[] = [
     description:
       "A tranquil pond at the hour when daylight surrenders to evening. The artist renders lily pads as broad strokes of viridian and emerald, their reflections dissolving into violet and gold on the glassy surface.",
     prompt: "A tranquil pond covered in water lilies at dusk",
-    imagePath: "/art/water-lilies-dusk.svg",
+    imagePath: "/art/water-lilies-dusk.jpg",
     palette: ["#2d4a3e", "#6b8f71", "#c4a882", "#8b6b9e", "#e8c87a"],
   },
   {
@@ -26,7 +26,7 @@ export const gallery: Artwork[] = [
     description:
       "Paris after a shower — gas lamps bloom amber on wet cobblestones while umbrellas become quick dashes of color. The artist captures movement through blurred edges and reflected light.",
     prompt: "A Parisian boulevard after rain",
-    imagePath: "/art/boulevard-rain.svg",
+    imagePath: "/art/boulevard-rain.jpg",
     palette: ["#3d3d4a", "#8b7355", "#d4a574", "#5a6b7a", "#c9b896"],
   },
   {
@@ -40,7 +40,7 @@ export const gallery: Artwork[] = [
     description:
       "Scarlet poppies sweep across a sun-warmed meadow, their petals catching the light in broken strokes of cadmium red and coral. A distant farmhouse anchors the composition in pastoral calm.",
     prompt: "A sun-drenched field of red poppies",
-    imagePath: "/art/field-poppies.svg",
+    imagePath: "/art/field-poppies.jpg",
     palette: ["#c0392b", "#e74c3c", "#27ae60", "#f1c40f", "#3498db"],
   },
   {
@@ -54,7 +54,7 @@ export const gallery: Artwork[] = [
     description:
       "Fishing boats rest at anchor as dawn paints the harbor in peach and lavender. Masts rise as dark vertical accents against a sky still holding the coolness of night.",
     prompt: "A fishing harbor at sunrise",
-    imagePath: "/art/harbor-sunrise.svg",
+    imagePath: "/art/harbor-sunrise.jpg",
     palette: ["#e8a87c", "#c38d9e", "#85cdca", "#4a6fa5", "#2c3e50"],
   },
   {
@@ -68,7 +68,7 @@ export const gallery: Artwork[] = [
     description:
       "Standing on a windswept hill, a figure holds a white parasol against dappled sunlight. The dress billows in quick, gestural strokes — a study in light, air, and fleeting presence.",
     prompt: "A woman on a grassy hill with a white parasol",
-    imagePath: "/art/woman-parasol.svg",
+    imagePath: "/art/woman-parasol.jpg",
     palette: ["#f5f0e1", "#a8c686", "#7eb8da", "#e8d5b7", "#c9a96e"],
   },
   {
@@ -82,7 +82,7 @@ export const gallery: Artwork[] = [
     description:
       "Two monumental haystacks absorb the last warmth of afternoon. Long shadows stretch across the field while ochre and amber pigments describe form through color rather than line.",
     prompt: "Haystacks in late-afternoon golden light",
-    imagePath: "/art/haystacks-golden.svg",
+    imagePath: "/art/haystacks-golden.jpg",
     palette: ["#d4a03c", "#c67b2e", "#8b6914", "#5c4a1e", "#e8c872"],
   },
   {
@@ -96,7 +96,7 @@ export const gallery: Artwork[] = [
     description:
       "Crystal chandeliers scatter prismatic light across a ballroom floor. Dancers dissolve into ribbons of silk and shadow — the artist privileges sensation over precision.",
     prompt: "An elegant ballroom with dancers in motion",
-    imagePath: "/art/dance-ball.svg",
+    imagePath: "/art/dance-ball.jpg",
     palette: ["#2c1810", "#8b4513", "#daa520", "#f5deb3", "#4a0e4e"],
   },
   {
@@ -110,7 +110,7 @@ export const gallery: Artwork[] = [
     description:
       "Twilight settles over a Montmartre terrace. Warm interior light spills through café windows onto cobblestones, inviting the viewer into an evening of conversation and quiet observation.",
     prompt: "A Montmartre café terrace at twilight",
-    imagePath: "/art/montmartre-cafe.svg",
+    imagePath: "/art/montmartre-cafe.jpg",
     palette: ["#3d2914", "#c17817", "#f4a460", "#2f4f4f", "#ffd700"],
   },
 ];
