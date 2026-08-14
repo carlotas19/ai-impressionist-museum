@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --museum-black: #0a0a0a;
+  --museum-cream: #f5f0e8;
+  --neon-green: #00e599;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--museum-black);
+  color: var(--museum-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(0, 229, 153, 0.25);
+  color: #fff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Museum plaque gold rule */
+.plaque-rule {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 240, 232, 0.3) 20%,
+    rgba(245, 240, 232, 0.3) 80%,
+    transparent
+  );
+  height: 1px;
+}
+
+/* Subtle grain overlay for museum atmosphere */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 50;
+}
