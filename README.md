@@ -15,10 +15,6 @@ Visitors get two tabs:
 1. **Gallery** — a museum-style showroom. Each painting has a plaque naming the GPT-5 model as the artist, plus a short wall-text description.
 2. **Methodology** — how the show was made: one Neon project, one branch per model, image generation through the gateway’s OpenAI Responses `image_generation` tool, frontend on Next.js / Vercel.
 
-### Honest framing
-
-Neon AI Gateway’s image-capable models today are **OpenAI GPT-5 variants**. They share one renderer (the Responses `image_generation` tool). The model is still the “artiste”: each variant receives the same kind of impressionist brief and composes its own scene. Plaques credit the real model ID; the Methodology tab explains the shared renderer.
-
 ---
 
 ## The collection
