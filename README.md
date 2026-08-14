@@ -88,10 +88,10 @@ npm run setup:branches
 
 # Generate JPEGs into public/art/
 python3 scripts/generate_art_http.py
-# or, with Node deps installed:
-npm run generate
+# (alias) npm run generate
 ```
 
+Optional Node scripts under `scripts/` (`generate-art.ts`, `setup-branches.ts`, `setup-db.ts`) need extra packages (`@neon/ai-sdk-provider`, `@neondatabase/serverless`, `ai`, `tsx`) installed manually if you prefer that path over the Python generator.
 > **Note:** Prefer `streamText` / streaming when using the AI SDK — the gateway caps non-streaming responses near ~640 KB. This repo’s HTTP script requests `quality: low` JPEGs so a non-streaming Responses call stays under that limit.
 
 Docs: [AI Gateway overview](https://neon.com/docs/ai-gateway/overview) · [Models](https://neon.com/docs/ai-gateway/models) · [Responses / image generation](https://neon.com/docs/ai-gateway/openai-responses)
